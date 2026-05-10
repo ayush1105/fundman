@@ -65,12 +65,12 @@ export default function ContactPage() {
         <div className="space-y-6">
           <div>
             <h2 className="font-semibold text-lg mb-2">Email</h2>
-            <p className="text-gray-600">fundman1105@gmail.com</p>
+            <p className="text-gray-600">support@fundman.in</p>
           </div>
 
           <div>
             <h2 className="font-semibold text-lg mb-2">Phone</h2>
-            <p className="text-gray-600">+91 9873912233</p>
+            <p className="text-gray-600">+91 01204228517</p>
           </div>
 
           <div>
