@@ -38,12 +38,14 @@ export async function POST(req: Request) {
 
     // 📧 EMAIL SETUP
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+  host: "smtpout.secureserver.net",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
     // 📩 EMAIL CONTENT
     await transporter.sendMail({
