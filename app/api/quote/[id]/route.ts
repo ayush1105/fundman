@@ -1,5 +1,5 @@
-import { prisma } from "../../../lib/prisma";
-import { transporter } from "../../../lib/mailer";
+import { prisma } from "../../../../lib/prisma";
+import { transporter } from "../../../../lib/mailer";
 
 export async function PATCH(
   req: Request,
