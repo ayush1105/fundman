@@ -9,12 +9,12 @@ export async function POST(req: Request) {
 
     if (!name || !email || !message) {
       return Response.json(
-        { error: "All fields required" },
+        { error: "All fields are required" },
         { status: 400 }
       );
     }
 
-    // SAVE TO DB
+    // Save message
     const saved = await prisma.contactMessage.create({
       data: {
         name,
@@ -23,22 +23,23 @@ export async function POST(req: Request) {
       },
     });
 
-    // SEND EMAIL
+    // Send email
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
 
       to: process.env.EMAIL_USER,
 
-      subject: "New Contact Message - FundMan",
+      subject: "New Contact Message",
 
       html: `
         <h2>New Contact Message</h2>
 
-        <p><strong>Name:</strong> Fundman</p>
-        <p><strong>Email:</strong> fundman1105@gmail.com</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+
         <p><strong>Message:</strong></p>
 
-        <p>Thankyou for Contacting</p>
+        <p>${message}</p>
       `,
     });
 
