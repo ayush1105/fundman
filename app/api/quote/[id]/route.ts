@@ -1,11 +1,23 @@
 import { prisma } from "../../../../lib/prisma";
 import { transporter } from "../../../../lib/mailer";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
 
 export async function PATCH(
+
+  
   req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const session = await getServerSession(authOptions);
+
+if (!session) {
+  return Response.json(
+    { error: "Unauthorized" },
+    { status: 401 }
+  );
+}
     // ✅ Await params (important for Next.js 15)
     const { id } = await params;
 

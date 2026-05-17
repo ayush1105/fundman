@@ -9,7 +9,6 @@ import {
   Briefcase,
   CheckCircle,
 } from "lucide-react";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -55,6 +54,19 @@ export default function Home() {
             <Link href="/quote" className="hover:text-blue-600 transition">Request</Link>
             <Link href="/login" className="hover:text-blue-600 transition">Admin</Link>
             <Link href="/contact" className="hover:text-blue-600 transition">Contact</Link>
+            <Link
+    href="/vendor/register"
+    className="border border-blue-600 text-blue-600 px-5 py-2 rounded-xl font-medium hover:bg-blue-50 transition"
+  >
+    Become a Vendor
+  </Link>
+
+  <Link
+    href="/login"
+    className="bg-blue-600 text-white px-5 py-2 rounded-xl font-medium hover:bg-blue-700 transition"
+  >
+    Login
+  </Link>
           </div>
 
         </div>
